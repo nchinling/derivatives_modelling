@@ -1,0 +1,12 @@
+.title {
+    font-size: 18px;
+    color: white;
+    margin-top: 10px;
+    max-width: 100%;
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    /* background-color: #900C3F; */
+    background-color: #C70039
+}

@@ -1,0 +1,15 @@
+.options-price {
+    font-size: 24px;
+    color: white;
+    margin-top: 10px;
+    max-width: 400px;
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    background-color: #4477CE
+}
+
+.options-price span {
+    font-weight: bold;
+}
