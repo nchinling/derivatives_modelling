@@ -1,9 +1,10 @@
 import './css/ModelTitle.css';
 
-function ModelTitle() {
+function ModelTitle({ modelTitle }) {
+
     return (
         <div className="model-title">
-            <h1>Black-Scholes Options Pricing Model</h1>
+            <h1>{modelTitle}</h1>
         </div>
 
     );

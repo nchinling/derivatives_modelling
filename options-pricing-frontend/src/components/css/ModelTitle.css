@@ -1,11 +1,15 @@
 .model-title {
-    font-size: 15px;
     color: white;
-    margin-top: 10px;
+    font-size: 0.7em;
+    /* margin-top: 10px; */
     max-width: 400px;
-    margin: 20px auto;
-    padding: 20px;
+    /* Reduce the max-width to make the box narrower */
+    margin: 10px auto;
+    /* Adjust margin for spacing */
+    padding: 10px;
+    /* Reduce padding to make the box smaller */
     border: 1px solid #ccc;
-    border-radius: 20px;
-    background-color: #4477CE
+    border-radius: 10px;
+    /* Reduce border-radius for sharper corners */
+    background-color: #4477CE;
 }

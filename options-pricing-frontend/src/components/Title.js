@@ -3,7 +3,7 @@ import './css/Title.css';
 function Title() {
     return (
         <div className="title">
-            <h1>Derivatives Modelling Project</h1>
+            <h1>Financial Modelling Project</h1>
         </div>
 
     );

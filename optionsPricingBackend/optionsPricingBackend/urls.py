@@ -19,7 +19,7 @@ from django.urls import path, include
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path("api/process-form/", include("blackscholes.urls")),
-    # path("api/get-csrf-token/", include("blackscholes.urls")),
+    path("api/black-scholes-form/", include("blackscholes.urls")),
+    path("api/bond-price-form/", include("bond.urls")),
+    path("api/capm-form/", include("capm.urls")),
 ]
-

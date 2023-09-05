@@ -1,8 +1,13 @@
 .cards-container {
     display: flex;
-    /* Use flexbox for horizontal spacing */
+    flex-direction: column;
     justify-content: space-between;
-    /* Space evenly between cards */
-    margin: 10px;
+    /* margin: 10px; */
 
+}
+
+
+.container {
+    display: flex;
+    margin: 10px;
 }

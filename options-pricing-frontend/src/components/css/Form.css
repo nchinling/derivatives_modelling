@@ -9,7 +9,7 @@ form {
     border-radius: 20px;
     background-color: #900C3F;
     color: white;
-
+    height: auto;
 }
 
 /* Style labels */

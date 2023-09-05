@@ -2,15 +2,17 @@ import { useState } from "react";
 import axios from 'axios';
 import './css/Form.css';
 import './css/ModelTitle.css';
-import OptionsPrice from './OptionsPrice';
+import Price from './Price';
 import ModelTitle from './ModelTitle';
+import ModelDetails from "./ModelDetails";
 
 
 const URL_API = 'http://localhost:8000/api'
-function BlackScholesForm() {
+function BlackScholesForm({ models }) {
     const [formData, setFormData] = useState({ assetPrice: 5, exercisePrice: 5.5, ttExpiry: 3, riskFreeInterestRate: 3.5, volatility: 20, dividendYield: 4.05 });
 
-    const [optionPrice, setOptionPrice] = useState(null);
+    const [callOptionPrice, setCallOptionPrice] = useState(null);
+    const [putOptionPrice, setPutOptionPrice] = useState(null);
 
     const handleChange = (event) => {
         const { name, value } = event.target;
@@ -19,23 +21,25 @@ function BlackScholesForm() {
 
     const handleSubmit = async (event) => {
         event.preventDefault();
-        // alert(`AssetPrice: ${formData.assetPrice}, Exercise Price: ${formData.exercisePrice}, Time to expiry: ${formData.ttExpiry}, Risk-free Interest Rate: ${formData.riskFreeInterestRate}, Volatility: ${formData.volatility}, Dividend Yield: ${formData.dividendYield} `
-        // );
-        try {
-            const response = await axios.post(`${URL_API}/process-form/`, formData);
-            setOptionPrice(response.data.optionPrice);
 
-            console.log("Received back response: " + response.data.optionPrice);
+        try {
+            const response = await axios.post(`${URL_API}/black-scholes-form/`, formData);
+            setCallOptionPrice(response.data.callOptionPrice);
+            setPutOptionPrice(response.data.putOptionPrice);
+
+            console.log("Received back response: " + response.data.callOptionPrice);
         } catch (error) {
             console.error(error);
         }
     };
 
     return (
-        <div>
-            <ModelTitle />
+        <div className="container" style={{ height: '750px' }}>
+
+            {/* <ModelTitle modelTitle={models.title} /> */}
             <form onSubmit={handleSubmit}>
 
+                <ModelTitle modelTitle={models.title} />
                 <label htmlFor="assetPrice">Asset Price ($):</label>
                 <input type="number" id="assetPrice" name="assetPrice" value={formData.assetPrice} onChange={handleChange} /><br />
 
@@ -60,8 +64,10 @@ function BlackScholesForm() {
 
 
                 <button type="submit">Submit</button>
+                <Price price={{ callOptionPrice, putOptionPrice }} modelId={models.id} />
             </form>
-            <OptionsPrice optionPrice={optionPrice} />
+            <ModelDetails details={models.details} />
+
         </div>
     );
 }
