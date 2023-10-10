@@ -22,4 +22,6 @@ urlpatterns = [
     path("api/black-scholes-form/", include("blackscholes.urls")),
     path("api/bond-price-form/", include("bond.urls")),
     path("api/capm-form/", include("capm.urls")),
+    path("api/intrinsic-value-form/", include("intrinsicvalue.urls")),
+    path("api/dividend-yield-form/", include("dividendyield.urls"))
 ]

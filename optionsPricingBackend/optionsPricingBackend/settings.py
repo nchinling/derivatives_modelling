@@ -63,6 +63,8 @@ INSTALLED_APPS = [
     "blackscholes",
     "bond",
     "capm",
+    "intrinsicvalue",
+    "dividendyield",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",

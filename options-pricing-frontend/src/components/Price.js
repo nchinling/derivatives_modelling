@@ -2,7 +2,7 @@ import './css/Price.css';
 
 function Price({ price, modelId }) {
 
-    let optionPriceInfo, bondPriceInfo, capmInfo
+    let optionPriceInfo, bondPriceInfo, capmInfo, intrinsicValueInfo, dividendYieldInfo
 
     if (modelId === 1) {
         const { callOptionPrice, putOptionPrice } = price;
@@ -38,6 +38,28 @@ function Price({ price, modelId }) {
                 </div>
             )
         }
+    } else if (modelId === 4) {
+        const { intrinsicValue, marginOfSafetyValue } = price;
+        if (intrinsicValue !== null && marginOfSafetyValue !== null) {
+            const formattedIntrinsicValue = intrinsicValue ? intrinsicValue.toFixed(2) : 'N/A';
+            const formattedMarginOfSafety = marginOfSafetyValue ? marginOfSafetyValue.toFixed(2) : 'N/A';
+            intrinsicValueInfo = (
+                <div>
+                    <h1>The intrinsic value is  <span>${formattedIntrinsicValue}</span></h1>
+                    <h1>The margin of safety is  <span>{formattedMarginOfSafety} %</span></h1>
+                </div>
+            );
+        }
+    } else if (modelId === 5) {
+        const dividendYield = price;
+        if (dividendYield !== null) {
+            const formattedDividendYield = dividendYield ? dividendYield.toFixed(2) : 'N/A';
+            dividendYieldInfo = (
+                <div>
+                    <h1>The dividend yield is <span>{formattedDividendYield}%</span></h1>
+                </div>
+            )
+        }
     } else {
         <h1>This is Model C</h1>
     }
@@ -47,6 +69,8 @@ function Price({ price, modelId }) {
             {optionPriceInfo}
             {bondPriceInfo}
             {capmInfo}
+            {intrinsicValueInfo}
+            {dividendYieldInfo}
         </div>
 
     );

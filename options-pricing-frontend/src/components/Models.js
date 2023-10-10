@@ -7,6 +7,8 @@ const calculatorRoutePaths = {
     1: 'black-scholes',
     2: 'capm',
     3: 'bond-pricing',
+    4: 'intrinsic-value',
+    5: 'dividend-yield',
 
 };
 
